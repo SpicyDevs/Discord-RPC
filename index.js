@@ -98,6 +98,14 @@ function formatTime() {
   const timeWithSeparator = time.replace(" ", " | "); // This is the time and date separator, don't touch, just use '|'
   return timeWithSeparator;
 }
+setTimeout(() => {
+  if (!client || !client.user) {
+    console.log("Cient didn't logged in.. Killing the process..")
+    process.kill(1);
+  } else {
+    console.log("Client has succesfully logged in!")
+  }
+}, 1 * 1000 * 20);
 const keepAlive = require("./server.js");
 keepAlive();
 client.login(
